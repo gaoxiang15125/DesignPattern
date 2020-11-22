@@ -1,5 +1,6 @@
 package org.study.design.design.proxypattern.staticproxy.service.impl;
 
+import org.study.design.design.proxypattern.staticproxy.bean.Item;
 import org.study.design.design.proxypattern.staticproxy.bean.Order;
 import org.study.design.design.proxypattern.staticproxy.dao.OrderDao;
 import org.study.design.design.proxypattern.staticproxy.service.OrderService;
@@ -24,5 +25,13 @@ public class OrderServiceImpl implements OrderService {
         System.out.println("OrderServiceImpl 调用 creatOrder 方法成功");
         return orderDao.insert(order);
     }
+
+    @Override
+    public int creatTime(Item item) {
+        System.out.println("OrderServiceImpl 调用 creatTime 方法成功");
+        return 0;
+    }
+
+//    public int creatItem()
 }
 

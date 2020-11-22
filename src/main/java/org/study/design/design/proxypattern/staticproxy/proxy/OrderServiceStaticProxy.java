@@ -1,5 +1,6 @@
 package org.study.design.design.proxypattern.staticproxy.proxy;
 
+import org.study.design.design.proxypattern.staticproxy.bean.Item;
 import org.study.design.design.proxypattern.staticproxy.bean.Order;
 import org.study.design.design.proxypattern.staticproxy.service.DynamicDataSourceEntry;
 import org.study.design.design.proxypattern.staticproxy.service.OrderService;
@@ -39,6 +40,18 @@ public class OrderServiceStaticProxy implements OrderService {
         after();
         return 0;
     }
+
+    @Override
+    public int creatTime(Item item) {
+        before();
+        Long time = item.getCreateTime();
+        Integer dbRouter = Integer.valueOf(yearFormat.format(new Date(time)));
+        System.out.println("静态代理自动分配到【DB_" + dbRouter + "】数据源处理数据");
+        DynamicDataSourceEntry.set(dbRouter);
+        orderService.creatTime(item);
+        return 0;
+    }
+
 
     public void before() {
         System.out.println("通过代理进行表插入操作");

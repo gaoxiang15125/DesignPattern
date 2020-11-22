@@ -1,5 +1,6 @@
 package org.study.design.design.proxypattern.staticproxy.service;
 
+import org.study.design.design.proxypattern.staticproxy.bean.Item;
 import org.study.design.design.proxypattern.staticproxy.bean.Order;
 
 /**
@@ -12,4 +13,5 @@ import org.study.design.design.proxypattern.staticproxy.bean.Order;
 public interface OrderService {
 
     int creatOrder(Order order);
+    int creatTime(Item item);
 }

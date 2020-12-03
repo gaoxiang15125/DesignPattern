@@ -11,7 +11,7 @@ import lombok.Data;
  **/
 @Data
 public class Order {
-    private Object orderInfo;
+    private String orderInfo;
     private Long createTime;
     private String id;
 }
